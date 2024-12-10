@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\tai lieu mon hoc\ki_5\prn212\bl5\Project\obj\Debug\net8.0-windows\
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\
 Project
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\tai lieu mon hoc\ki_5\prn212\bl5\Project\App.xaml
-5178763975
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\App.xaml
+81233546515
 
-141714519000
+1775144483
 247209773288
-adminSide\MainScreenAdmin.xaml;CustomerSide\MainScreenCus.xaml;Login.xaml;Register.xaml;Verify.xaml;
+adminSide\MainScreenAdmin.xaml;ChangePassword.xaml;CustomerSide\MainScreenCus.xaml;ForgotPass.xaml;Login.xaml;Register.xaml;Verify.xaml;VerifyForgot.xaml;
 
 False
 

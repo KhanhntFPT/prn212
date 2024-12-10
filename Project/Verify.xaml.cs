@@ -1,5 +1,6 @@
 ﻿using Microsoft.Identity.Client.NativeInterop;
 using System.Net.Mail;
+using System.Net;
 using System.Windows;
 
 namespace Project
@@ -61,6 +62,7 @@ namespace Project
             {
                 string to = email;
                 string from = "khanhnthe181027@fpt.edu.vn";
+                string pass = "ohgw klbj nmve ldba";
                 string subject = "Verify code";
 
                 MailMessage mail = new MailMessage();
@@ -84,12 +86,19 @@ namespace Project
     </html>";
                 mail.Body = body;
                 mail.IsBodyHtml = true;
-
+                smtp.UseDefaultCredentials = false;
                 smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential(from, "tucr piux smja jvdt");
+                smtp.Credentials = new System.Net.NetworkCredential(from, pass);
                 smtp.EnableSsl = true;
 
-                smtp.Send(mail);
+                try
+                {
+                    smtp.Send(mail);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
             }
             catch (SmtpException smtpEx)
             {

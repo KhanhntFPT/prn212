@@ -23,42 +23,44 @@ namespace Project
                 MessageBox.Show("Please enter both email and password.");
                 return;
             }
-
-            var account = ParkingManagementContext.Ins.Accounts
+            using (var context = new ParkingManagementContext()) // Tạo context mới
+            {
+                var account = ParkingManagementContext.Ins.Accounts
                 .FirstOrDefault(a => a.Username.Equals(email));
 
-            if (account == null)
-            {
-                MessageBox.Show("Account not found.");
-                return;
-            }
-
-            var passwordHasher = new PasswordHasher<string>();
-            var result = passwordHasher.VerifyHashedPassword(null, account.Password, password);
-
-            if (result == PasswordVerificationResult.Success)
-            {
-                if (account.Role == "Admin")
+                if (account == null)
                 {
-                    adminSide.MainScreenAdmin adminWindow = new adminSide.MainScreenAdmin();
-                    adminWindow.Show();
+                    MessageBox.Show("Account not found.");
+                    return;
                 }
-                else if (account.Role == "Customer")
+                context.Entry(account).Reload();
+                var passwordHasher = new PasswordHasher<string>();
+                var result = passwordHasher.VerifyHashedPassword(null, account.Password, password);
+
+                if (result == PasswordVerificationResult.Success)
                 {
-                    CustomerSide.MainScreenCus customerWindow = new CustomerSide.MainScreenCus();
-                    customerWindow.Show();
+                    if (account.Role == "admin")
+                    {
+                        adminSide.MainScreenAdmin adminWindow = new adminSide.MainScreenAdmin();
+                        adminWindow.Show();
+                    }
+                    else if (account.Role == "customer")
+                    {
+                        CustomerSide.MainScreenCus customerWindow = new CustomerSide.MainScreenCus();
+                        customerWindow.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unknown role.");
+                        return;
+                    }
+
+                    this.Close(); // Đóng cửa sổ đăng nhập
                 }
                 else
                 {
-                    MessageBox.Show("Unknown role.");
-                    return;
+                    MessageBox.Show("Invalid password.");
                 }
-
-                this.Close(); // Đóng cửa sổ đăng nhập
-            }
-            else
-            {
-                MessageBox.Show("Invalid password.");
             }
         }
 
@@ -67,6 +69,18 @@ namespace Project
             Register registerWindow = new Register();
             registerWindow.Show();
             this.Close();
+        }
+
+        private void ForgotPassword_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Password forgotPass = new Password();
+            forgotPass.Show();
+            this.Close();
+        }
+
+        private void Login_Load(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

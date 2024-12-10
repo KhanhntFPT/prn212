@@ -83,3 +83,6 @@ INSERT INTO Tickets (UserID, TypeID, purchaseDate, expiryDate, status) VALUES
 (1, 1, '2024-12-01 08:00:00', NULL, 'Active'), -- Single-use ticket for John Doe
 (1, 2, '2024-12-01 09:00:00', '2025-01-01 09:00:00', 'Active'), -- Monthly ticket for John Doe
 (2, 1, '2024-12-02 09:00:00', NULL, 'Active'); -- Single-use ticket for Jane Smith
+
+select * from ParkingLot
+select * from Accounts

@@ -13,7 +13,13 @@
     <Compile Update="CustomerSide\MainScreenCus.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ForgotPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangePassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Register.xaml.cs">
@@ -30,10 +36,19 @@
     <Page Update="CustomerSide\MainScreenCus.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ForgotPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Login.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VerifyForgot.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Verify.xaml">
