@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|d:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\project_prn212\\project\\adminside\\mainscreenadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|solutionrelative:adminside\\mainscreenadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|d:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\project_prn212\\project\\verify.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|solutionrelative:verify.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|d:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\project_prn212\\project\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|solutionrelative:register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|d:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\project_prn212\\project\\adminside\\mainscreenadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|solutionrelative:adminside\\mainscreenadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B3E04CF2-795B-4C49-AF55-4B8934F7CC18}|Project.csproj|d:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\project_prn212\\project\\adminside\\mainscreenadmin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,37 +30,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Verify.xaml.cs",
               "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\Verify.xaml.cs",
               "RelativeDocumentMoniker": "Verify.xaml.cs",
               "ToolTip": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\Verify.xaml.cs",
               "RelativeToolTip": "Verify.xaml.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T10:22:22.968Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register.xaml.cs",
-              "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\Register.xaml.cs",
-              "RelativeDocumentMoniker": "Register.xaml.cs",
-              "ToolTip": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\Register.xaml.cs",
-              "RelativeToolTip": "Register.xaml.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T10:22:14.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "TicketTypeDetail.xaml.cs",
               "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\adminSide\\TicketTypeDetail.xaml.cs",
               "RelativeDocumentMoniker": "adminSide\\TicketTypeDetail.xaml.cs",
@@ -72,12 +59,11 @@
               "RelativeToolTip": "adminSide\\TicketTypeDetail.xaml.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwA0AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:07:16.375Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:07:16.375Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainScreenAdmin.xaml.cs",
               "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\adminSide\\MainScreenAdmin.xaml.cs",
               "RelativeDocumentMoniker": "adminSide\\MainScreenAdmin.xaml.cs",
@@ -85,16 +71,11 @@
               "RelativeToolTip": "adminSide\\MainScreenAdmin.xaml.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAswHIAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:24:17.112Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2024-12-11T08:24:17.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "TicketManagement.cs",
               "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\viewModel\\TicketManagement.cs",
               "RelativeDocumentMoniker": "viewModel\\TicketManagement.cs",
@@ -102,20 +83,18 @@
               "RelativeToolTip": "viewModel\\TicketManagement.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwCQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:27:48.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:27:48.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainScreenAdmin.xaml",
               "DocumentMoniker": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\adminSide\\MainScreenAdmin.xaml",
               "RelativeDocumentMoniker": "adminSide\\MainScreenAdmin.xaml",
               "ToolTip": "D:\\tai lieu mon hoc\\ki_5\\prn212\\bl5\\Project_PRN212\\Project\\adminSide\\MainScreenAdmin.xaml",
               "RelativeToolTip": "adminSide\\MainScreenAdmin.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-11T07:27:17.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T07:27:17.932Z"
             }
           ]
         },
