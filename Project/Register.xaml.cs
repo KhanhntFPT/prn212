@@ -75,6 +75,15 @@ namespace Project
                 MessageBox.Show("Password length must be greater than 4!");
                 return;
             }
+            // Kiểm tra mật khẩu có chứa cả chữ cái và số
+            bool hasLetter = password.Any(char.IsLetter);
+            bool hasDigit = password.Any(char.IsDigit);
+
+            if (!hasLetter || !hasDigit)
+            {
+                MessageBox.Show("Password must contain both letters and numbers!");
+                return;
+            }
 
             Account newCus = new Account();
             newCus.Username = Email;

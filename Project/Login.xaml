@@ -13,9 +13,9 @@
             <TextBlock Text="Login" FontSize="45" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,45" />
 
             <Label Content="Email"/>
-            <TextBox x:Name="EmailTextBox" Text="ssjggoki@gmail.com" Margin="0,0,0,5" Height="35" FontSize="14" />
+            <TextBox x:Name="EmailTextBox" Text="admin" Margin="0,0,0,5" Height="35" FontSize="14" />
             <Label Content="Password"/>
-            <PasswordBox x:Name="PasswordBox" Password="zxcv" Margin="0,0,0,10" Height="35" FontSize="14" />
+            <PasswordBox x:Name="PasswordBox" Password="admin123" Margin="0,0,0,10" Height="35" FontSize="14" />
 
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Stretch" VerticalAlignment="Center">

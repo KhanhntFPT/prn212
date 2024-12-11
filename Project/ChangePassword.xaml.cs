@@ -24,7 +24,15 @@ namespace Project
                 ErrorMessage.Text = "Please fill in both password fields.";
                 return;
             }
+            // Kiểm tra mật khẩu có chứa cả chữ cái và số
+            bool hasLetter = newPassword.Any(char.IsLetter);
+            bool hasDigit = newPassword.Any(char.IsDigit);
 
+            if (!hasLetter || !hasDigit)
+            {
+                MessageBox.Show("Password must contain both letters and numbers!");
+                return;
+            }
             if (newPassword != confirmPassword)
             {
                 ErrorMessage.Text = "Passwords do not match. Please try again.";

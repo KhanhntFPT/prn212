@@ -19,7 +19,8 @@ CREATE TABLE PersonalInfo (
     parkingDate DATETIME, -- Date the vehicle was parked
     retrievalDate DATETIME, -- Date the vehicle was retrieved
     licensePlate NVARCHAR(20) NOT NULL, -- Vehicle's license plate number
-    FOREIGN KEY (ID) REFERENCES Accounts(ID)
+    FOREIGN KEY (ID) REFERENCES Accounts(ID),
+	FOREIGN KEY (email) REFERENCES Accounts(username)
 );
 
 -- Table for Parking Lots with LotSector and LotNumber
@@ -27,11 +28,9 @@ CREATE TABLE ParkingLot (
     LotID INT IDENTITY(1,1) PRIMARY KEY,
     LotSector CHAR(1) NOT NULL, -- Sector identifier (e.g., A, B, C)
     UserID INT, -- Links to PersonalInfo (via Accounts)
-    EmployeeID INT, -- Links to Accounts
     status NVARCHAR(50) NOT NULL, -- Status of parking lot (e.g., "Occupied", "Available")
     amount INT DEFAULT 0, -- Default amount is 0
     FOREIGN KEY (UserID) REFERENCES PersonalInfo(ID),
-    FOREIGN KEY (EmployeeID) REFERENCES Accounts(ID)
 );
 
 -- Table for Ticket Types

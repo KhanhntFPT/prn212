@@ -33,6 +33,8 @@ namespace Project.viewModel
                 existingTicketType.Price = updatedTicketType.Price;
                 existingTicketType.ValidityDays = updatedTicketType.ValidityDays;
                 existingTicketType.Description = updatedTicketType.Description;
+
+                context.SaveChanges();
             }
             else
             {
@@ -50,5 +52,25 @@ namespace Project.viewModel
             context.TicketTypes.Add(ticketType);
             context.SaveChanges();
         }
+        public void RemoveTicketType(int id)
+        {
+            using (ParkingManagementContext context = new ParkingManagementContext())
+            {
+                // Tìm TicketType theo id
+                var ticketTypeToRemove = context.TicketTypes.FirstOrDefault(x => x.TypeId == id);
+                if (ticketTypeToRemove != null)
+                {
+                    // Xóa TicketType khỏi context
+                    context.TicketTypes.Remove(ticketTypeToRemove);
+                    // Lưu thay đổi vào database
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("TicketType not found");
+                }
+            }
+        }
+
     }
 }
