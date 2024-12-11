@@ -11,12 +11,11 @@ public partial class ParkingManagementContext : DbContext
     public ParkingManagementContext()
     {
     }
-
+    public static ParkingManagementContext Ins = new ParkingManagementContext();
     public ParkingManagementContext(DbContextOptions<ParkingManagementContext> options)
         : base(options)
     {
     }
-    public static ParkingManagementContext Ins { get; } = new ParkingManagementContext();
     public virtual DbSet<Account> Accounts { get; set; }
 
     public virtual DbSet<ParkingLot> ParkingLots { get; set; }

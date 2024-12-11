@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="adminSide\AddTicketType.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="adminSide\MainScreenAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="adminSide\TicketTypeDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CustomerSide\MainScreenCus.xaml.cs">
@@ -30,7 +36,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="adminSide\AddTicketType.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="adminSide\MainScreenAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="adminSide\TicketTypeDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CustomerSide\MainScreenCus.xaml">

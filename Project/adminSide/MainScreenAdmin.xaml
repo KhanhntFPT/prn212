@@ -3,10 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Project.adminSide"
-        mc:Ignorable="d"
-        Title="MainScreenAdmin" Height="450" Width="800">
+        Title="Admin Dashboard" WindowState="Maximized" WindowStyle="SingleBorderWindow">
     <Grid>
-        
+        <!-- Layout split into two sections: Sidebar and Main Content -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="290"/>
+            <!-- Sidebar -->
+            <ColumnDefinition Width="*"/>
+            <!-- Main Content -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <StackPanel Background="LightGray" Grid.Column="0" VerticalAlignment="Stretch">
+            <TextBlock Text="Admin Dashboard" HorizontalAlignment="Center" Foreground="Black" FontSize="30" FontWeight="Bold" Margin="10,60,10,40" />
+            <Button Content="Revenue Management" FontSize="20" Name="RevenueButton" Margin="0,20" Height="40" FontWeight="Bold" Background="Gray" Foreground="White" />
+            <Button Content="Ticket Management" FontSize="20" Name="TicketButton" Margin="0,20" Height="40" FontWeight="Bold" Background="Gray" Foreground="White" />
+            <Button Content="ParkingLot Management" FontSize="20" Name="ParkingButton" Margin="0,20" Height="40" FontWeight="Bold" Background="Gray" Foreground="White" />
+            <Button Content="Account Management" FontSize="20" Name="CustomerButton" Margin="0,20" Height="40" FontWeight="Bold" Background="Gray" Foreground="White" />
+        </StackPanel>
+
+        <!-- Logout Button at the bottom left -->
+        <Button Grid.Column="0" Content="Logout" Name="LogoutButton" Margin="5" Width="100" Height="30" Background="#D32F2F" Foreground="White" 
+        HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="LogoutButton_Click" />
+
+        <!-- Main Content -->
+        <Grid Grid.Column="1" Background="#F5F5F5" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,20,0,10" VerticalAlignment="Top">
+                <TextBox Name="searchBox" Width="300" Height="30" Margin="0,0,10,0" />
+                <Button Content="Search" Name="searchButton" Margin="0,0,10,0" Width="80" Height="30" Click="SearchButton_Click" />
+                <Button Content="Add ticket" Name="addTicket" Margin="0,0,10,0" Width="80" Height="30" Click="AddButton_Click" HorizontalAlignment="Right" />
+            </StackPanel>
+            <!-- Ticket Management DataGrid -->
+            <DataGrid Name="ticketTypeGrid" SelectedCellsChanged="ticketTypeGrid_SelectedCellsChanged" 
+                      CanUserAddRows="False" AutoGenerateColumns="False" Loaded="LoadTicketType" Margin="30,60,30,30">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="TypeId" Binding="{Binding TypeId}"/>
+                    <DataGridTextColumn Header="TypeName" Binding="{Binding TypeName}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="ValidityDays" Binding="{Binding ValidityDays}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

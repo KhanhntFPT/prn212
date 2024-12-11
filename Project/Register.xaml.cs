@@ -40,6 +40,7 @@ namespace Project
             string Fullname = NameTextBox.Text;
             string Email = EmailTextBox.Text;
             string password = PasswordBox.Password;
+            string LicensePlate = LicensePlateTextBox.Text;
 
             if (string.IsNullOrEmpty(Email))
             {
@@ -76,10 +77,14 @@ namespace Project
             }
 
             Account newCus = new Account();
-            {
-                newCus.Username = Email;
-                newCus.Role = "customer";
-            };
+            newCus.Username = Email;
+            newCus.Role = "customer";
+
+            PersonalInfo personalInfo = new PersonalInfo();
+            personalInfo.Id = newCus.Id;
+            personalInfo.Email = Email;
+            personalInfo.Name = Fullname;
+            personalInfo.LicensePlate = LicensePlate;
 
             PasswordHasher<string> hasher = new PasswordHasher<string>();
             string hashedPassword = hasher.HashPassword(null, password);
@@ -92,6 +97,8 @@ namespace Project
                 ParkingManagementContext.Ins.Add(newCus);
                 ParkingManagementContext.Ins.SaveChanges();
                 MessageBox.Show("Register Successful");
+                Login login = new Login();
+                login.Show();
             }
             else
             {

@@ -315,3 +315,7 @@ D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-wind
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\Project.pdb
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\Project.genruntimeconfig.cache
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\ref\Project.dll
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\TicketTypeDetail.baml
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\TicketTypeDetail.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddTicketType.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddTicketType.baml

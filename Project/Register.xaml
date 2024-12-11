@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="Register" Height="550" Width="400"
+        Title="Register" Height="550" Width="450"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
@@ -16,10 +16,14 @@
             <!-- Name Input -->
             <Label Content="Enter your full name"/>
             <TextBox x:Name="NameTextBox" Height="35" FontSize="14" />
-            
+
             <!-- Email Input -->
             <Label Content="Enter your email"/>
             <TextBox x:Name="EmailTextBox" Height="35" FontSize="14" />
+
+            <!-- License Plate Input -->
+            <Label Content="Enter your license plate number"/>
+            <TextBox x:Name="LicensePlateTextBox" Height="35" FontSize="14" />
 
             <!-- Password Input -->
             <Label Content="Enter your password"/>
@@ -28,9 +32,9 @@
             <!-- Confirm Password Input -->
             <Label Content="Confirm your password"/>
             <PasswordBox x:Name="ConfirmPasswordBox" Height="35" FontSize="14" />
-            
+
             <!-- Register Button -->
-            <Button Content="Register" Height="40" Background="#3B82F6" Foreground="White" FontSize="14" Margin="0,30,0,20" Click="Register_Click" />
+            <Button Content="Register" Width="230" Height="40" Background="#3B82F6" Foreground="White" FontSize="14" Margin="0,30,0,5" Click="Register_Click" />
 
             <!-- Login Redirect -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
