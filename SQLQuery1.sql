@@ -53,6 +53,19 @@ CREATE TABLE Tickets (
     FOREIGN KEY (UserID) REFERENCES PersonalInfo(ID),
     FOREIGN KEY (TypeID) REFERENCES TicketTypes(TypeID)
 );
+-- Table to track the parking time and calculate the parking fee based on ticket type
+CREATE TABLE ParkTime (
+    ParkTimeID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT NOT NULL, -- Links to PersonalInfo (via Accounts)
+    ParkingLotID INT NOT NULL, -- Links to ParkingLot
+    TicketID INT NOT NULL, -- Links to Tickets (Used for parking)
+    ParkedTime DATETIME NOT NULL, -- The time when the vehicle was parked
+    RetrievedTime DATETIME, -- The time when the vehicle was retrieved
+    TotalAmount INT DEFAULT 0, -- Total charge for parking based on Ticket price
+    FOREIGN KEY (UserID) REFERENCES PersonalInfo(ID),
+    FOREIGN KEY (ParkingLotID) REFERENCES ParkingLot(LotID),
+    FOREIGN KEY (TicketID) REFERENCES Tickets(TicketID)
+);
 
 -- Insert Sample Data into Accounts
 INSERT INTO Accounts (username, password, role) VALUES
@@ -83,5 +96,22 @@ INSERT INTO Tickets (UserID, TypeID, purchaseDate, expiryDate, status) VALUES
 (1, 2, '2024-12-01 09:00:00', '2025-01-01 09:00:00', 'Active'), -- Monthly ticket for John Doe
 (2, 1, '2024-12-02 09:00:00', NULL, 'Active'); -- Single-use ticket for Jane Smith
 
+-- Insert records for November and December in the ParkTime table
+
+INSERT INTO ParkTime (UserID, ParkingLotID, TicketID, ParkedTime, RetrievedTime, TotalAmount) 
+VALUES 
+(1, 2, 1, '2024-11-01 08:00:00', '2024-11-01 10:30:00', 50), -- Record for November 1st
+(2, 3, 2, '2024-11-05 09:00:00', '2024-11-02 11:45:00', 60), -- Record for November 5th
+(3, 1, 1, '2024-12-10 14:00:00', '2024-11-11 17:00:00', 50), -- Record for November 10th
+(2, 4, 3, '2024-11-15 07:30:00', '2024-11-15 09:00:00', 70), -- Record for November 15th
+(2, 2, 2, '2024-11-20 12:00:00', '2024-11-20 14:00:00', 60), -- Record for November 20th
+(1002, 1, 1, '2024-11-22 10:00:00', '2024-11-22 13:30:00', 50), -- Record for November 22nd
+(1, 3, 1, '2024-12-01 08:30:00', '2024-12-01 11:00:00', 50), -- Record for December 1st
+(3, 2, 3, '2024-12-05 14:30:00', '2024-12-05 17:00:00', 70), -- Record for December 5th
+(3, 4, 2, '2024-11-1 09:30:00', '2024-12-10 12:00:00', 60), -- Record for December 10th
+(1003, 1, 3, '2024-11-15 16:00:00', '2024-12-15 18:30:00', 7000); -- Record for December 15th
+
 select * from ParkingLot
 select * from Accounts
+select * from PersonalInfo
+select * from ParkTime

@@ -319,3 +319,11 @@ D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-wind
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\TicketTypeDetail.g.cs
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddTicketType.g.cs
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddTicketType.baml
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\CustomerDetailWindow.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddCustomerWindow.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\CustomerDetailWindow.baml
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddCustomerWindow.baml
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddParkingLotWindow.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\EditParkingLotWindow.g.cs
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\AddParkingLotWindow.baml
+D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\obj\Debug\net8.0-windows\adminSide\EditParkingLotWindow.baml

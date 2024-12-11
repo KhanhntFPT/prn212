@@ -1,0 +1,32 @@
+﻿<Window x:Class="Project.adminSide.AddParkingLotWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.adminSide"
+        mc:Ignorable="d"
+        Title="Add Parking Lot" Height="350" Width="380">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Add Parking Lot" FontSize="20" FontWeight="Bold" Margin="0,0,0,20" />
+
+            <TextBlock Text="Lot Sector:" />
+            <TextBox Name="lotSectorTextBox" Margin="0,0,0,10" />
+
+            <TextBlock Text="User ID:" />
+            <TextBox Name="userIdTextBox" Margin="0,0,0,10" />
+
+            <TextBlock Text="Status:" />
+            <TextBox Name="statusTextBox" Margin="0,0,0,10" />
+
+            <TextBlock Text="Amount:" />
+            <TextBox Name="amountTextBox" Margin="0,0,0,20" />
+
+            <!-- Bố trí hai nút Add và Reset -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Add" Click="AddButton_Click" Width="80" Margin="10"/>
+                <Button Content="Reset" Click="ResetButton_Click" Width="80" Margin="10" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

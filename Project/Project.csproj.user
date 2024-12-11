@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="adminSide\AddCustomerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="adminSide\AddParkingLotWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="adminSide\AddTicketType.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="adminSide\CustomerDetailWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="adminSide\EditParkingLotWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="adminSide\MainScreenAdmin.xaml.cs">
@@ -36,7 +48,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="adminSide\AddCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="adminSide\AddParkingLotWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="adminSide\AddTicketType.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="adminSide\CustomerDetailWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="adminSide\EditParkingLotWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="adminSide\MainScreenAdmin.xaml">

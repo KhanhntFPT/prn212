@@ -75,6 +75,7 @@ namespace Project
                 MessageBox.Show("Password length must be greater than 4!");
                 return;
             }
+
             // Kiểm tra mật khẩu có chứa cả chữ cái và số
             bool hasLetter = password.Any(char.IsLetter);
             bool hasDigit = password.Any(char.IsDigit);
@@ -89,12 +90,6 @@ namespace Project
             newCus.Username = Email;
             newCus.Role = "customer";
 
-            PersonalInfo personalInfo = new PersonalInfo();
-            personalInfo.Id = newCus.Id;
-            personalInfo.Email = Email;
-            personalInfo.Name = Fullname;
-            personalInfo.LicensePlate = LicensePlate;
-
             PasswordHasher<string> hasher = new PasswordHasher<string>();
             string hashedPassword = hasher.HashPassword(null, password);
             newCus.Password = hashedPassword;
@@ -104,7 +99,20 @@ namespace Project
             if (verify.issucc == true)
             {
                 ParkingManagementContext.Ins.Add(newCus);
-                ParkingManagementContext.Ins.SaveChanges();
+                ParkingManagementContext.Ins.SaveChanges(); // Lưu Account trước
+
+                // Sau khi lưu Account, lấy Id của Account và tạo PersonalInfo
+                PersonalInfo personalInfo = new PersonalInfo
+                {
+                    Id = newCus.Id, // Gán AccountId cho PersonalInfo
+                    Email = Email,
+                    Name = Fullname,
+                    LicensePlate = LicensePlate
+                };
+
+                ParkingManagementContext.Ins.Add(personalInfo); // Thêm PersonalInfo vào cơ sở dữ liệu
+                ParkingManagementContext.Ins.SaveChanges(); // Lưu PersonalInfo
+
                 MessageBox.Show("Register Successful");
                 Login login = new Login();
                 login.Show();
@@ -116,5 +124,7 @@ namespace Project
 
             this.Close();
         }
+
+
     }
 }

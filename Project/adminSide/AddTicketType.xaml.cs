@@ -40,7 +40,8 @@ namespace Project.adminSide
             String description = descriptionTextBox.Text;
             _ticketManagement.AddTicketType(name, price, day, description);
             MessageBox.Show("Ticket Type added successfully!");
-           
+           MainScreenAdmin mainScreenAdmin = new MainScreenAdmin();
+            mainScreenAdmin.LoadTicketType(null, null);
             this.Close();
         }
 
@@ -52,13 +53,6 @@ namespace Project.adminSide
             priceTextBox.Text = _ticketType.Price.ToString();
             validityDaysTextBox.Text = _ticketType.ValidityDays?.ToString();
             descriptionTextBox.Text = _ticketType.Description;
-        }
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            if (Owner is MainScreenAdmin mainScreenAdmin)
-            {
-                mainScreenAdmin.LoadTicketType(sender: null, null); // Gọi lại phương thức LoadTicketType trên MainScreenAdmin.
-            }
         }
     }
 }
