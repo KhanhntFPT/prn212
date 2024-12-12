@@ -16,7 +16,19 @@
     <Compile Update="adminSide\TicketTypeDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CustomerSide\FormParkingLot.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomerSide\InfoUserPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CustomerSide\MainScreenCus.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomerSide\ParkingLotView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomerSide\PaymentPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ForgotPass.xaml.cs">
@@ -45,7 +57,19 @@
     <Page Update="adminSide\TicketTypeDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CustomerSide\FormParkingLot.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CustomerSide\InfoUserPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CustomerSide\MainScreenCus.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CustomerSide\ParkingLotView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CustomerSide\PaymentPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ForgotPass.xaml">

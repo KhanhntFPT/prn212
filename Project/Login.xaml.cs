@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using Project.Models; // Đảm bảo namespace đúng với lớp Account
 using Microsoft.AspNetCore.Identity;
+using Project.CustomerSide;
 
 namespace Project
 {
@@ -26,7 +27,7 @@ namespace Project
             using (var context = new ParkingManagementContext()) // Tạo context mới
             {
                 var account = ParkingManagementContext.Ins.Accounts
-                .FirstOrDefault(a => a.Username.Equals(email));
+                .FirstOrDefault(a => a.Username.Equals(email)&&a.Password.Equals(password));
 
                 if (account == null)
                 {
@@ -34,20 +35,20 @@ namespace Project
                     return;
                 }
                 context.Entry(account).Reload();
-                var passwordHasher = new PasswordHasher<string>();
-                var result = passwordHasher.VerifyHashedPassword(null, account.Password, password);
+                //var passwordHasher = new PasswordHasher<string>();
+                //var result = passwordHasher.VerifyHashedPassword(null, account.Password, password);
 
-                if (result == PasswordVerificationResult.Success)
+                if (account!= null)
                 {
                     if (account.Role == "admin")
                     {
                         adminSide.MainScreenAdmin adminWindow = new adminSide.MainScreenAdmin();
                         adminWindow.Show();
                     }
-                    else if (account.Role == "customer")
+                    else if (account.Role.Equals("Customer"))
                     {
-                        CustomerSide.MainScreenCus customerWindow = new CustomerSide.MainScreenCus();
-                        customerWindow.Show();
+                        FormParkingLot formParkingLot = new FormParkingLot(account);   
+                        formParkingLot.Show();
                     }
                     else
                     {

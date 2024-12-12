@@ -1,0 +1,82 @@
+﻿<Window x:Class="Project.CustomerSide.ParkingLotView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.CustomerSide"
+        mc:Ignorable="d"
+        Title="ParkingLotView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Resources>
+            <BitmapImage x:Key="avatar" UriSource="../img/avatar.png" />
+            <BitmapImage x:Key="car" UriSource="../img/car.png" />
+            <BitmapImage x:Key="reload" UriSource="../img/reload.png" />
+        </Grid.Resources>
+        <!-- Main layout with two columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <StackPanel Background="#2E4F4F" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <!-- Logo -->
+            <StackPanel Margin="10" HorizontalAlignment="Center">
+                <Image Source="{StaticResource car}" Width="100" Height="100" />
+            </StackPanel>
+
+            <!-- Menu -->
+            <StackPanel>
+                <Button Click="BtnParkingLot_Click" Content="Bãi đỗ xe" Margin="10,5" Padding="10" Background="Transparent" Foreground="White" FontWeight="Bold" />
+                <Button Content="Thông tin đỗ xe" Margin="10,5" Padding="10" Background="#AA2B33" Foreground="White" />
+            </StackPanel>
+
+            <!-- Footer -->
+            <StackPanel Margin="0 ,80,10,10" Height="100" Width="160">
+                <StackPanel Orientation="Horizontal"  Margin="0,5">
+                    <Image Source="{StaticResource avatar}" Width="30" Height="30" />
+                    <Button Click="BtnInfo_Click1">
+                        <Button.Content>
+                            <TextBlock x:Name="UserNameText" Foreground="White" VerticalAlignment="Center" Margin="10,0" />
+                        </Button.Content>
+                    </Button>
+                    
+                </StackPanel>
+                <Button Click="BtnLogout" Content="Logout" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <!-- Parking Info View -->
+            <StackPanel Name="ParkingInfoView" Visibility="Collapsed" Margin="20">
+                <TextBlock Text="Parking Information" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="ID khách hàng:" FontWeight="Bold" />
+                    <TextBlock Name="CustomerIdText" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Tên khách hàng:" FontWeight="Bold" />
+                    <TextBlock Name="CustomerNameText" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Biển số xe:" FontWeight="Bold" />
+                    <TextBlock Name="LicensePlateText" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Ngày đỗ xe:" FontWeight="Bold" />
+                    <TextBlock Name="ParkingDateText" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Ngày lấy xe:" FontWeight="Bold" />
+                    <TextBlock Name="RetrievalDateText" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Phí đỗ xe:" FontWeight="Bold" Foreground="Red" />
+                    <TextBlock Name="FeeText" />
+                </StackPanel>
+                <Button Click="RetrieveCarButton_Click" Content="Retrieve Car" Background="#2E4F4F" Foreground="White" Width="150" Height="35" HorizontalAlignment="Left" Margin="0,20,0,0" />
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Window>
