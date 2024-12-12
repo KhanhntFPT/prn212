@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace Project.Models;
@@ -20,4 +21,6 @@ public partial class ParkingLot
     public virtual Account? Employee { get; set; }
 
     public virtual PersonalInfo? User { get; set; }
+    //public virtual DbSet<ParkTime> ParkTimes { get; set; }
+
 }

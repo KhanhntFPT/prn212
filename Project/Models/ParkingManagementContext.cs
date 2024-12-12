@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Project.Model;
 
 namespace Project.Models;
 
@@ -25,6 +26,7 @@ public partial class ParkingManagementContext : DbContext
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     public virtual DbSet<TicketType> TicketTypes { get; set; }
+    public virtual DbSet<ParkTime> ParkTimes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -167,7 +169,19 @@ public partial class ParkingManagementContext : DbContext
                 .HasColumnName("typeName");
             entity.Property(e => e.ValidityDays).HasColumnName("validityDays");
         });
+        modelBuilder.Entity<ParkTime>(entity =>
+        {
+            entity.HasKey(e => e.ParkTimeId).HasName("PK__ParkTime__B35922E9CC16ABC0");
 
+            entity.ToTable("ParkTime");
+
+            entity.Property(e => e.ParkTimeId).HasColumnName("ParkTimeID");
+            entity.Property(e => e.ParkedTime).HasColumnType("datetime");
+            entity.Property(e => e.ParkingLotId).HasColumnName("ParkingLotID");
+            entity.Property(e => e.RetrievedTime).HasColumnType("datetime");
+            entity.Property(e => e.TicketId).HasColumnName("TicketID");
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 

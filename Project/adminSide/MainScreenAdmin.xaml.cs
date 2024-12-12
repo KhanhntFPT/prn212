@@ -1,4 +1,5 @@
 ﻿using Microsoft.Identity.Client;
+using Project.Model;
 using Project.Models;
 using Project.viewModel;
 using System;
@@ -39,7 +40,7 @@ namespace Project.adminSide
                 TicketGrid.Visibility = Visibility.Visible;
                 AccountGrid.Visibility = Visibility.Collapsed;
                 ParkingLotGrid.Visibility = Visibility.Collapsed;
-                RevenueGrid.Visibility = Visibility.Collapsed;
+                ParkTimeGrid.Visibility = Visibility.Collapsed;
             }
             else { TicketGrid.Visibility = Visibility.Collapsed; }
             if (isAccount)
@@ -47,7 +48,7 @@ namespace Project.adminSide
                 TicketGrid.Visibility = Visibility.Collapsed;
                 AccountGrid.Visibility = Visibility.Visible;
                 ParkingLotGrid.Visibility = Visibility.Collapsed;
-                RevenueGrid.Visibility = Visibility.Collapsed;
+                ParkTimeGrid.Visibility = Visibility.Collapsed;
             }
             else { AccountGrid.Visibility = Visibility.Collapsed; }
             if (isPark)
@@ -55,7 +56,7 @@ namespace Project.adminSide
                 TicketGrid.Visibility = Visibility.Collapsed;
                 AccountGrid.Visibility = Visibility.Collapsed;
                 ParkingLotGrid.Visibility = Visibility.Visible;
-                RevenueGrid.Visibility = Visibility.Collapsed;
+                ParkTimeGrid.Visibility = Visibility.Collapsed;
             }
             else { ParkingLotGrid.Visibility = Visibility.Collapsed; }
             if (isRenevue)
@@ -63,9 +64,9 @@ namespace Project.adminSide
                 TicketGrid.Visibility = Visibility.Collapsed;
                 AccountGrid.Visibility = Visibility.Collapsed;
                 ParkingLotGrid.Visibility = Visibility.Collapsed;
-                RevenueGrid.Visibility = Visibility.Visible;
+                ParkTimeGrid.Visibility = Visibility.Visible;
             }
-            else { RevenueGrid.Visibility = Visibility.Collapsed; }
+            else { ParkTimeGrid.Visibility = Visibility.Collapsed; }
         }
         private void TicketButton_Click(object sender, RoutedEventArgs e)
         {
@@ -83,6 +84,7 @@ namespace Project.adminSide
             isAccount = false;
             isPark = false;
             isTicket = false;
+            parkTimeGrid.Visibility = Visibility.Visible;
             load();
         }
 
@@ -119,13 +121,57 @@ namespace Project.adminSide
             List<TicketType> ticketTypes = ticketManagement.GetTicketTypes();
             ticketTypeGrid.ItemsSource = ticketTypes;
         }
-        public void LoadRevenueButton_Click(object sender, RoutedEventArgs e)
+        private void LoadRevenueButton_Click(object sender, RoutedEventArgs e)
         {
-            TicketManagement ticketManagement = new TicketManagement();
-            List<TicketType> ticketTypes = ticketManagement.GetTicketTypes();
-            ticketTypeGrid.ItemsSource = ticketTypes;
+            // Get the selected start and end dates
+            DateTime? startDate = StartDatePicker.SelectedDate;
+            DateTime? endDate = EndDatePicker.SelectedDate;
+
+            // Validate date selection
+            if (!startDate.HasValue || !endDate.HasValue)
+            {
+                MessageBox.Show("Please select both start and end dates.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (startDate > endDate)
+            {
+                MessageBox.Show("Start date must be earlier than or equal to end date.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            try
+            {
+                // Query the database for the data
+                using (var context = new ParkingManagementContext())
+                {
+                    // Count the number of cars parked in the selected time range
+                    int parkedCarsCount = context.ParkTimes
+                        .Where(pt => pt.ParkedTime >= startDate && pt.RetrievedTime <= endDate)
+                        .Count();
+
+                    // Count the number of cars currently parked
+                    int currentlyParkedCount = context.ParkTimes
+                        .Where(pt => pt.ParkedTime == null)
+                        .Count();
+
+                    // Calculate the total payment in the selected time range
+                    int totalPayment = context.ParkTimes
+                        .Where(pt => pt.ParkedTime >= startDate && pt.RetrievedTime <= endDate)
+                        .Sum(pt => pt.TotalAmount ?? 0);
+
+                    // Update the UI with the calculated values
+                    ParkedCarsLabel.Content = parkedCarsCount.ToString();
+                    CurrentlyParkedLabel.Content = currentlyParkedCount.ToString();
+                    TotalPaymentLabel.Content = totalPayment.ToString("N0"); // Format as a number with commas
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-        
+
         public void LoadAccountButton_Click(object sender, RoutedEventArgs e)
         {
             CustomerManagement customerManagement = new CustomerManagement();
@@ -145,7 +191,6 @@ namespace Project.adminSide
                 // Mở cửa sổ chi tiết với thông tin của ticketType đã chọn
                 TicketTypeDetail detailWindow = new TicketTypeDetail(selectedTicket);
                 detailWindow.ShowDialog(); // Sử dụng ShowDialog để chờ cho đến khi cửa sổ đóng lại
-                if (!detailWindow.IsActive) LoadTicketType(null, null);
             }
         }
         public void LoadTicketType(object sender, RoutedEventArgs e)
@@ -167,7 +212,6 @@ namespace Project.adminSide
         {
             AddTicketType ticketType = new AddTicketType();
             ticketType.ShowDialog();
-            if (!ticketType.IsActive) LoadTicketType(null, null);
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -203,7 +247,6 @@ namespace Project.adminSide
                 // Hiển thị cửa sổ chi tiết với thông tin khách hàng đã chọn
                 CustomerDetailWindow detailWindow = new CustomerDetailWindow(selectedCustomer);
                 detailWindow.ShowDialog(); // Chờ cho đến khi cửa sổ đóng
-                if (!detailWindow.IsActive) LoadAccountData(null, null);
             }
         }
 
@@ -226,7 +269,6 @@ namespace Project.adminSide
         {
             AddCustomerWindow addCustomerWindow = new AddCustomerWindow();
             addCustomerWindow.ShowDialog();
-            if (!addCustomerWindow.IsActive) LoadAccountData(null, null);
         }
 
         private void DeleteAccountButton_Click(object sender, RoutedEventArgs e)
@@ -274,7 +316,6 @@ namespace Project.adminSide
         {
             AddParkingLotWindow addParkingLotWindow = new AddParkingLotWindow();
             addParkingLotWindow.ShowDialog();
-            if (!addParkingLotWindow.IsActive) LoadParkingLotData(null, null);
         }
 
         // Tìm kiếm ParkingLot
@@ -329,8 +370,42 @@ namespace Project.adminSide
                 // Hiển thị cửa sổ chi tiết để chỉnh sửa thông tin ParkingLot đã chọn
                 EditParkingLotWindow editWindow = new EditParkingLotWindow(selectedParkingLot);
                 editWindow.ShowDialog();
-                if (!editWindow.IsActive) LoadParkingLotData(null, null);
             }
+        }
+        
+
+        // Delete a specific Park Time record
+        private void DeleteParkTimeButton_Click(object sender, RoutedEventArgs e)
+        {
+        //    // Get the ParkTimeId from the clicked button's Tag
+        //    var button = sender as Button;
+        //    var parkTimeId = (int)button.Tag;
+
+        //    // Delete logic (this can be a call to the database or data service)
+        //    // For example, remove it from the list or database
+        //    DeleteParkTimeRecord(parkTimeId);
+
+        //    // Refresh the grid after deletion
+        //    var parkTimeData = GetParkTimes();
+        //    parkTimeGrid.ItemsSource = parkTimeData;
+        }
+
+        // Search Park Time records based on user input
+        private void SearchParkTimeButton_Click(object sender, RoutedEventArgs e)
+        {
+            //// Get search criteria from the user (e.g., UserId or TicketId)
+            //var searchTerm = searchBox.Text.Trim();
+
+            //// Call the method to filter the data based on the search term
+            //var filteredData = SearchParkTimeData(searchTerm);
+            //parkTimeGrid.ItemsSource = filteredData;
+        }
+
+        private void parkTimeGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            ParkTimeManagement p = new ParkTimeManagement();
+            List<ParkTime> pt = p.GetParkTimes();
+            parkTimeGrid.ItemsSource = pt;
         }
     }
 

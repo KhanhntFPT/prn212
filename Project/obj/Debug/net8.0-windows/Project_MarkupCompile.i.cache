@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\tai lieu mon hoc\ki_5\prn212\bl5\Project_PRN212\Project\App.xaml
 14-2109699658
 
-29197508833
+31-1803922304
 247209773288
 adminSide\AddCustomerWindow.xaml;adminSide\AddParkingLotWindow.xaml;adminSide\AddTicketType.xaml;adminSide\CustomerDetailWindow.xaml;adminSide\EditParkingLotWindow.xaml;adminSide\MainScreenAdmin.xaml;adminSide\TicketTypeDetail.xaml;ChangePassword.xaml;CustomerSide\MainScreenCus.xaml;ForgotPass.xaml;Login.xaml;Register.xaml;Verify.xaml;VerifyForgot.xaml;
 
-True
+False
 
